@@ -19,6 +19,11 @@ export class CriarTabelaMovimentacaoEstoque1708560296648
             isNullable: false,
           },
           {
+            name: 'id_caracteristica',
+            type: 'integer',
+            isNullable: true,
+          },
+          {
             name: 'id_tipo_movimentacao_estoque',
             type: 'integer',
             isNullable: false,
@@ -44,6 +49,11 @@ export class CriarTabelaMovimentacaoEstoque1708560296648
             columnNames: ['id_tipo_movimentacao_estoque'],
             referencedTableName: 'tipo_movimentacao_estoque',
             referencedColumnNames: ['id_tipo_movimentacao_estoque'],
+          },
+          {
+            columnNames: ['id_caracteristica'],
+            referencedTableName: 'caracteristica',
+            referencedColumnNames: ['id_caracteristica'],
           },
         ],
       }),
