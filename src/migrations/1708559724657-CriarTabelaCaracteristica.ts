@@ -1,8 +1,6 @@
 import { MigrationInterface, QueryRunner, Table, TableUnique } from 'typeorm';
 
-export class CriarTabelaCaracteristica1708559724657
-  implements MigrationInterface
-{
+export class CriarTabelaCaracteristica1708559724657 implements MigrationInterface {
   public async up(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.createTable(
       new Table({

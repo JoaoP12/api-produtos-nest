@@ -1,8 +1,6 @@
 import { MigrationInterface, QueryRunner, Table } from 'typeorm';
 
-export class CriarTabelaCaracteristicaProduto1708559967883
-  implements MigrationInterface
-{
+export class CriarTabelaCaracteristicaProduto1708559967883 implements MigrationInterface {
   public async up(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.createTable(
       new Table({
@@ -34,10 +32,7 @@ export class CriarTabelaCaracteristicaProduto1708559967883
       }),
     );
 
-    await queryRunner.createPrimaryKey('caracteristica_produto', [
-      'id_caracteristica',
-      'id_produto',
-    ]);
+    await queryRunner.createPrimaryKey('caracteristica_produto', ['id_caracteristica', 'id_produto']);
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {
