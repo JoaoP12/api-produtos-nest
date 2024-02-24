@@ -1,4 +1,4 @@
-import { BadRequestException, Inject, Injectable, forwardRef } from '@nestjs/common';
+import { BadRequestException, HttpCode, Inject, Injectable, forwardRef } from '@nestjs/common';
 import { Cliente } from '../../entities/cliente.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
@@ -12,6 +12,7 @@ export class ClienteService {
     private readonly authService: AuthService,
   ) {}
 
+  @HttpCode(201)
   async cadastrar(clienteReq: Cliente): Promise<Cliente> {
     const { email, cpf, nome } = clienteReq;
     const emailCadastrado = await this.clienteRepository.findOne({ where: { email } });
