@@ -10,7 +10,7 @@ export class MailService {
     private readonly mailerTransport: Transporter,
   ) {}
 
-  async sendMail(mailOptions: Mail.Options) {
-    await this.mailerTransport.sendMail(mailOptions);
+  async sendMail(mailOptions: Mail.Options): Promise<any> {
+    return await this.mailerTransport.sendMail(mailOptions);
   }
 }

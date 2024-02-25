@@ -6,7 +6,7 @@ export class Venda {
   idVenda: number;
 
   @Column({ name: 'id_cliente' })
-  idCliente: number;
+  idCliente?: number;
 
   @Column({ name: 'data_hora' })
   dataHora: Date;

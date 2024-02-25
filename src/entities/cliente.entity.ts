@@ -13,4 +13,13 @@ export class Cliente {
 
   @Column({ name: 'cpf' })
   cpf: string;
+
+  @Column({ name: 'email_novo' })
+  emailNovo?: string;
+
+  @Column({ name: 'data_requisicao_email_novo' })
+  dataRequisicaoEmailNovo?: Date;
+
+  @Column({ name: 'data_requisicao_exclusao' })
+  dataRequisicaoExclusao?: Date;
 }

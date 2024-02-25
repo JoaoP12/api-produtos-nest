@@ -19,12 +19,12 @@ export class CriarTabelaVenda1708560779865 implements MigrationInterface {
           {
             name: 'data_hora',
             type: 'integer',
-            isNullable: false,
+            isNullable: true,
           },
           {
             name: 'valor_total',
             type: 'integer',
-            isNullable: false,
+            isNullable: true,
           },
           {
             name: 'descricao',
@@ -36,6 +36,7 @@ export class CriarTabelaVenda1708560779865 implements MigrationInterface {
             columnNames: ['id_cliente'],
             referencedTableName: 'cliente',
             referencedColumnNames: ['id_cliente'],
+            onDelete: 'SET NULL',
           },
         ],
       }),
