@@ -12,7 +12,11 @@ services:
       - ./:/app
     environment:
       - NODE_ENV=development
-      - DATABASE_URL=postgresql://postgres:password123@db/api_produtos
+      - DATABASE_URL=
+      - MAILER_CONFIG_URL=
+      - JWT_SECRET=
+      - MAGIC_LINK_SECRET=
+      - APPLICATION_URL=
     depends_on:
       db:
         condition: service_healthy
