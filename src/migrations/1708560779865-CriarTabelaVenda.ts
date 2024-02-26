@@ -12,14 +12,27 @@ export class CriarTabelaVenda1708560779865 implements MigrationInterface {
             isPrimary: true,
           },
           {
-            name: 'id_cliente',
-            type: 'integer',
+            name: 'nome_cliente',
+            type: 'varchar',
+            length: '100',
+            isNullable: false,
+          },
+          {
+            name: 'cpf_cliente',
+            type: 'varchar',
+            length: '11',
+            isNullable: false,
+          },
+          {
+            name: 'email_cliente',
+            type: 'varchar',
+            length: '100',
             isNullable: false,
           },
           {
             name: 'data_hora',
-            type: 'integer',
-            isNullable: true,
+            type: 'timestamp',
+            isNullable: false,
           },
           {
             name: 'valor_total',
@@ -29,14 +42,6 @@ export class CriarTabelaVenda1708560779865 implements MigrationInterface {
           {
             name: 'descricao',
             type: 'text',
-          },
-        ],
-        foreignKeys: [
-          {
-            columnNames: ['id_cliente'],
-            referencedTableName: 'cliente',
-            referencedColumnNames: ['id_cliente'],
-            onDelete: 'SET NULL',
           },
         ],
       }),

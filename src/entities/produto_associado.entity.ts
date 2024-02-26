@@ -10,7 +10,4 @@ export class ProdutoAssociado {
 
   @Column({ name: 'id_associado' })
   idAssociado: number;
-
-  @Column({ name: 'quantidade' })
-  quantidade: number;
 }

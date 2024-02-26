@@ -22,9 +22,9 @@ export class CriarTabelaMovimentacaoEstoque1708560296648 implements MigrationInt
             isNullable: true,
           },
           {
-            name: 'id_tipo_movimentacao_estoque',
-            type: 'integer',
-            isNullable: false,
+            name: 'tipo_movimentacao_estoque',
+            type: 'enum',
+            enum: ['ENTRADA', 'SAIDA', 'AJUSTE'],
           },
           {
             name: 'quantidade',
@@ -42,11 +42,6 @@ export class CriarTabelaMovimentacaoEstoque1708560296648 implements MigrationInt
             columnNames: ['id_produto'],
             referencedTableName: 'produto',
             referencedColumnNames: ['id_produto'],
-          },
-          {
-            columnNames: ['id_tipo_movimentacao_estoque'],
-            referencedTableName: 'tipo_movimentacao_estoque',
-            referencedColumnNames: ['id_tipo_movimentacao_estoque'],
           },
           {
             columnNames: ['id_caracteristica'],

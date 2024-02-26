@@ -1,0 +1,6 @@
+export enum TipoProduto {
+  SIMPLES = 'SIMPLES',
+  CONFIGURAVEL = 'CONFIGURAVEL',
+  DIGITAL = 'DIGITAL',
+  AGRUPADO = 'AGRUPADO',
+}

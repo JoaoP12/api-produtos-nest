@@ -1,73 +1,65 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+# API de Produtos
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+Esta é uma API de produtos para o desafio backend.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+## Instalação
 
-## Description
+1. Clone o repositório: `git clone https://github.com/JoaoP12/api-produtos-nest.git`
+2. Acesse o diretório do projeto: `cd api-produtos`
+3. Instale as dependências: `yarn`
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+## Uso
 
-## Installation
+Sem Docker
 
-```bash
-$ yarn install
-```
+1. Renomeie o arquivo `.env.example` para `.env`
+2. Preencha as variáveis de ambiente no arquivo `.env` com as configurações desejadas
+3. Inicie o servidor com: `yarn dev`
+4. A documentação de todos os endpoints estará disponível no endpoint http://localhost:3000/api
 
-## Running the app
+Com Docker:
 
-```bash
-# development
-$ yarn run start
+1. Preencha as variáveis de ambiente no arquivo docker-compose.yml
+2. Inicie a aplicação com o comando `docker-compose up -d`
+3. A porta do container será mapeada para porta 3000. Então a aplicação poderá ser acessada de http://localhost:3000
 
-# watch mode
-$ yarn run start:dev
+## Autenticação
 
-# production mode
-$ yarn run start:prod
-```
+A autenticação é feita por meio de magic links, isto é, não é necessária a utilização de senha, apenas do email. Um link será enviado para a caixa de entrada com um token para autenticar a sessão.
 
-## Test
+Todas as rotas exigem autenticação, com exceção da rota de cadastro do usuário, e os enpoints de autenticação.
 
-```bash
-# unit tests
-$ yarn run test
+## Usuario
 
-# e2e tests
-$ yarn run test:e2e
+Para se cadastrar, o usuário precisa apenas de um email e o nome. A autenticação do mesmo é feita por meio de magic links, como explicado anteriormente.
 
-# test coverage
-$ yarn run test:cov
-```
+## Produtos
 
-## Support
+Existem 4 tipos de produtos:
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+- SIMPLES: um produto com apenas nome, descrição e valor
+- DIGITAL: um produto simples, mas com a adição da URL de download do produto, como um e-book
+- CONFIGURAVEL: um produto que tem, no mínimo, duas características. Por exemplo: Tamanho, Cor, etc.
+- AGRUPADO: um produto que agrupa produtos simples, chamados de produtos associados.
 
-## Stay in touch
+## Características
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+Para cadastrar as características dos produtos, é necessário primeiro cadastrar o tipo de característica (Tamanho, Cor), para depois cadastrar as características em si (P, M, G, Azul)
 
-## License
+## Estoque
 
-Nest is [MIT licensed](LICENSE).
+O estoque dos produtos é controlado de acordo com movimentações de estoque. É necessário cadastrar movimentações como ENTRADA, SAÍDA e AJUSTE. A partir das movimentações, é feito o cálculo do estoque atual do produto.
+Para produtos configuráveis, é necessário informar a característica que está sendo movimentada. Exemplo: entrada de 5 camisetas azuis P, saída de uma calça G slim.
+
+## Vendas
+
+As vendas devem ser todas vinculadas a um cliente, sendo o CPF, email e nome do mesmo obrigatórias no registro da venda.
+Um produto só poderá ser vendido se tiver quantidade suficiente em estoque.
+Para produtos configuráveis, é necessário também fornecer a característica que está sendo vendida.
+
+## Pendencias
+
+- [ ] Finalização de testes automizados
+- [ ] Adição de alertas
+- [ ] Adição de health checks
+- Correção de inconsistências na modelagem.

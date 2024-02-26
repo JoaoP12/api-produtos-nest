@@ -17,7 +17,7 @@ export class CriarTabelaCaracteristica1708559724657 implements MigrationInterfac
             isNullable: false,
           },
           {
-            name: 'descricao',
+            name: 'nome',
             type: 'varchar',
             length: '50',
             isNullable: false,

@@ -5,8 +5,14 @@ export class Venda {
   @PrimaryGeneratedColumn({ name: 'id_venda' })
   idVenda: number;
 
-  @Column({ name: 'id_cliente' })
-  idCliente?: number;
+  @Column({ name: 'nome_cliente' })
+  nomeCliente: string;
+
+  @Column({ name: 'cpf_cliente' })
+  cpfCliente: string;
+
+  @Column({ name: 'email_cliente' })
+  emailCliente: string;
 
   @Column({ name: 'data_hora' })
   dataHora: Date;

@@ -3,11 +3,11 @@ import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
 @Entity()
 export class Caracteristica {
   @PrimaryGeneratedColumn({ name: 'id_caracteristica' })
-  id_caracteristica: number;
+  idCaracteristica: number;
 
   @Column({ name: 'id_tipo_caracteristica' })
-  id_tipo_caracteristica: number;
+  idTipoCaracteristica: number;
 
-  @Column({ name: 'descricao' })
-  descricao: string;
+  @Column({ name: 'nome' })
+  nome: string;
 }

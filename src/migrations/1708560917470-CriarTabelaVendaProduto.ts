@@ -31,6 +31,11 @@ export class CriarTabelaVendaProduto1708560917470 implements MigrationInterface 
             type: 'integer',
             isNullable: false,
           },
+          {
+            name: 'quantidade',
+            type: 'integer',
+            isNullable: false,
+          },
         ],
         foreignKeys: [
           {

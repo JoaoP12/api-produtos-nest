@@ -12,9 +12,9 @@ export class CriarTabelaProduto1708559097424 implements MigrationInterface {
             isPrimary: true,
           },
           {
-            name: 'id_tipo_produto',
-            type: 'int',
-            isNullable: false,
+            name: 'tipo_produto',
+            type: 'enum',
+            enum: ['SIMPLES', 'CONFIGURAVEL', 'DIGITAL', 'AGRUPADO'],
           },
           {
             name: 'nome',
@@ -23,19 +23,18 @@ export class CriarTabelaProduto1708559097424 implements MigrationInterface {
             isNullable: false,
           },
           {
+            name: 'url_download',
+            type: 'varchar',
+            length: '255',
+            isNullable: true,
+          },
+          {
             name: 'valor_unitario',
             type: 'int',
           },
           {
             name: 'descricao',
             type: 'text',
-          },
-        ],
-        foreignKeys: [
-          {
-            columnNames: ['id_tipo_produto'],
-            referencedTableName: 'tipo_produto',
-            referencedColumnNames: ['id_tipo_produto'],
           },
         ],
       }),

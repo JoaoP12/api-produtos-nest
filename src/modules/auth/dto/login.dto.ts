@@ -1,11 +1,10 @@
-import { IsEmail, IsNumberString, MaxLength, MinLength } from 'class-validator';
+import { ApiProperty } from '@nestjs/swagger';
+import { IsEmail } from 'class-validator';
 
 export class LoginDTO {
+  @ApiProperty({
+    description: 'Email do usuário',
+  })
   @IsEmail()
   email: string;
-
-  @IsNumberString()
-  @MinLength(11, { message: 'O CPF deve ter exatamente 11 caracteres' })
-  @MaxLength(11, { message: 'O CPF deve ter exatamente 11 caracteres' })
-  cpf: string;
 }

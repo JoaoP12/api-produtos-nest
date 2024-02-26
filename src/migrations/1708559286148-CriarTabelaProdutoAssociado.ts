@@ -1,15 +1,13 @@
 import { MigrationInterface, QueryRunner, Table, TableUnique } from 'typeorm';
 
-export class CriarTabelaProdutoAssociado1708559286148
-  implements MigrationInterface
-{
+export class CriarTabelaProdutoAssociado1708559286148 implements MigrationInterface {
   public async up(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.createTable(
       new Table({
         name: 'produto_associado',
         columns: [
           {
-            name: 'id',
+            name: 'id_produto_associado',
             type: 'serial',
             isPrimary: true,
           },
@@ -19,7 +17,7 @@ export class CriarTabelaProdutoAssociado1708559286148
             isNullable: false,
           },
           {
-            name: 'id_produto_associado',
+            name: 'id_associado',
             type: 'int',
             isNullable: false,
           },
@@ -31,7 +29,7 @@ export class CriarTabelaProdutoAssociado1708559286148
             referencedColumnNames: ['id_produto'],
           },
           {
-            columnNames: ['id_produto_associado'],
+            columnNames: ['id_associado'],
             referencedTableName: 'produto',
             referencedColumnNames: ['id_produto'],
           },
@@ -42,7 +40,7 @@ export class CriarTabelaProdutoAssociado1708559286148
     await queryRunner.createUniqueConstraint(
       'produto_associado',
       new TableUnique({
-        columnNames: ['id_produto', 'id_produto_associado'],
+        columnNames: ['id_produto', 'id_associado'],
       }),
     );
   }

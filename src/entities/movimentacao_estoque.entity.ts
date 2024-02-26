@@ -1,4 +1,5 @@
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { TipoMovimentacaoEstoque } from '../modules/estoque/enum/tipoMovimentacaoEstoque.enum';
 
 @Entity({ name: 'movimentacao_estoque' })
 export class MovimentacaoEstoque {
@@ -9,10 +10,10 @@ export class MovimentacaoEstoque {
   idProduto: number;
 
   @Column({ name: 'id_caracteristica' })
-  idCaracteristica: number;
+  idCaracteristica?: number;
 
-  @Column({ name: 'id_tipo_movimentacao_estoque' })
-  idTipoMovimentacaoEstoque: number;
+  @Column({ name: 'tipo_movimentacao_estoque', type: 'enum', enum: TipoMovimentacaoEstoque })
+  tipoMovimentacaoEstoque: TipoMovimentacaoEstoque;
 
   @Column({ name: 'quantidade' })
   quantidade: number;

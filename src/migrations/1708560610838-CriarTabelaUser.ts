@@ -1,13 +1,13 @@
 import { MigrationInterface, QueryRunner, Table, TableUnique } from 'typeorm';
 
-export class CriarTabelaCliente1708560610838 implements MigrationInterface {
+export class CriarTabelaUser1708560610838 implements MigrationInterface {
   public async up(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.createTable(
       new Table({
-        name: 'cliente',
+        name: 'user',
         columns: [
           {
-            name: 'id_cliente',
+            name: 'id_user',
             type: 'serial',
             isPrimary: true,
           },
@@ -23,25 +23,12 @@ export class CriarTabelaCliente1708560610838 implements MigrationInterface {
             length: '100',
             isNullable: false,
           },
-          {
-            name: 'cpf',
-            type: 'varchar',
-            length: '11',
-            isNullable: false,
-          },
         ],
       }),
     );
 
     await queryRunner.createUniqueConstraint(
-      'cliente',
-      new TableUnique({
-        columnNames: ['cpf'],
-      }),
-    );
-
-    await queryRunner.createUniqueConstraint(
-      'cliente',
+      'user',
       new TableUnique({
         columnNames: ['email'],
       }),
@@ -49,6 +36,6 @@ export class CriarTabelaCliente1708560610838 implements MigrationInterface {
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {
-    await queryRunner.dropTable('cliente');
+    await queryRunner.dropTable('user');
   }
 }
